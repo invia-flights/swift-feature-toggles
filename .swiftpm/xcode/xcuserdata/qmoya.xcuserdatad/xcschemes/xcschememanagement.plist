@@ -37,6 +37,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>FeatureTogglesTests</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>Featuring</key>
 		<dict>
 			<key>primary</key>
