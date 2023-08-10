@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-@testable import Featuring
+@testable import FeatureToggles
 
 enum MyFeature: FeatureKey {
 	static var id: String = "MY_FEATURE"
@@ -38,8 +38,9 @@ final class FeaturingTests: XCTestCase {
 	}
 
 	func testItCanOverrideViaURLs() async throws {
-		sut.handle(url: URL(string: #"myapp://toggle?id=MY_FEATURE&value=false"#)!)
+		let handled = sut.handle(url: URL(string: #"myapp://toggle?id=MY_FEATURE&value=false"#)!)
 		@FeatureToggle(\.myFeature, featureValues: sut) var myFeature
+		XCTAssert(handled)
 		XCTAssertEqual(myFeature, false)
 	}
 }

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FeatureToggles-Package.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>FeatureToggles.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>Featuring-Package.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,17 +22,32 @@
 		<key>Featuring.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
+		</dict>
+		<key>swift-feature-toggles-Package.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FeatureToggles</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>Featuring</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>FeaturingTests</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>swift-feature-toggles</key>
 		<dict>
 			<key>primary</key>
 			<true/>
