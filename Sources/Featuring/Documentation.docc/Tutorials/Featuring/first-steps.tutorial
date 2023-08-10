@@ -1,0 +1,17 @@
+@Tutorial(time: 20) { 
+  @Intro(title: "Creating your first feature toggle") {
+	  Your product owner wants you to implement a new,
+	  revolutionary feature
+  }
+  
+  @Section(title: "Define a toggle") {
+	@ContentAndMedia {
+		Imagine that
+	}
+	@Steps {
+	  @Step {
+		  TODO
+	  }
+	}
+  }
+}
