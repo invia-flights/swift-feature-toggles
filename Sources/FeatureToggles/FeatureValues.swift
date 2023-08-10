@@ -54,7 +54,7 @@ public struct FeatureValues: Sendable {
 	internal let notificationCenter: NotificationCenter
 
 	public subscript(key: (some FeatureKey).Type) -> Bool {
-		if let value = userDefaults.object(forKey: key.id), let bool = value as? Bool {
+		if let id = key.id, let value = userDefaults.object(forKey: id), let bool = value as? Bool {
 			return bool
 		}
 
