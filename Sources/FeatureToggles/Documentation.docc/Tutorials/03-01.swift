@@ -1,13 +1,13 @@
-import SwiftUI
 import FeatureToggles
+import SwiftUI
 
 struct ContentView: View {
-	var body: some View {
-		VStack {
-			Text("Welcome to our app")
-				.font(.title)
-			
-			TeleportView()
-		}
-	}
+  var body: some View {
+    VStack {
+      Text("Welcome to our app")
+        .font(.title)
+
+      TeleportView()
+    }
+  }
 }
