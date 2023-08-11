@@ -109,3 +109,18 @@ even in `RELEASE` builds with a disabled compile-time toggle.
 
 - <doc:CreatingYourFirstFeatureToggle>
 
+### Declaring toggles
+
+- ``FeatureToggleKey``
+- ``FeatureToggleValues``
+
+### Using toggles
+
+- ``FeatureToggle``
+
+### Setting compile-time defaults
+
+- ``DebugDisabled``
+- ``DebugEnabled``
+- ``ReleaseDisabled``
+- ``ReleaseEnabled``

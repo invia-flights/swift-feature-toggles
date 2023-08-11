@@ -1,4 +1,4 @@
-@Tutorial(time: 20) { 
+@Tutorial(time: 15) { 
  @Intro(title: "Creating your first feature toggle") {
 	 Feature toggles allow you to merge work-in-progress into your main 
 	 branch without disrupting its stability, facilitating continuous deployment.
