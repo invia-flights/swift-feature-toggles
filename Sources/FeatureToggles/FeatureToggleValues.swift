@@ -1,42 +1,42 @@
 import Foundation
 
-
 /// Provides access to the current state of feature toggles.
 public struct FeatureToggleValues: Sendable {
-	
-	/// A shared instance.
+
+  /// A shared instance.
   public static var shared = FeatureToggleValues()
 
   internal let userDefaults: UserDefaults
 
-	
-	/// Creates an instance backed by the provided user defaults.
-	/// - Parameter userDefaults: An instance of `UserDefaults`.
+  /// Creates an instance backed by the provided user defaults.
+  /// - Parameter userDefaults: An instance of `UserDefaults`.
   public init(
     userDefaults: UserDefaults = .standard
   ) {
     self.userDefaults = userDefaults
   }
-	
-	/// Overrides the compile-time settings via a specially-formatted URL.
-	///
-	/// The URL must have `toggle` as a hostname and two query items:
-	/// - `feature`: The feature’s identifier, declared by a `FeatureToggleKey` as
-	///   its `featureToggleIdentifier` static property.
-	/// - `enabled`: `true` or `false.`
-	///
-	/// For example, this URL would be valid: `yourscheme://toggle?id=teleport&value=true`.
-	///
-	/// The overrides are persisted in the standard `UserDefaults`.
-	///
-	/// - Parameter url: A specially-formatted URL (see above.)
-	/// - Returns: `true` if the override was successful, otherwise `false`.
+
+  /// Overrides the compile-time settings via a specially-formatted URL.
+  ///
+  /// The URL must have `toggle` as a hostname and two query items:
+  /// - `feature`: The feature’s identifier, declared by a `FeatureToggleKey` as
+  ///   its `featureToggleIdentifier` static property.
+  /// - `enabled`: `true` or `false.`
+  ///
+  /// For example, this URL would be valid: `yourscheme://toggle?id=teleport&value=true`.
+  ///
+  /// The overrides are persisted in the standard `UserDefaults`.
+  ///
+  /// - Parameter url: A specially-formatted URL (see above.)
+  /// - Returns: `true` if the override was successful, otherwise `false`.
   public static func override(withValuesFrom url: URL) -> Bool {
     shared.override(withValuesFrom: url)
   }
 
   internal subscript(key: (some FeatureToggleKey).Type) -> Bool {
-    if let value = userDefaults.object(forKey: key.featureToggleIdentifier), let bool = value as? Bool {
+    if let value = userDefaults.object(forKey: key.featureToggleIdentifier),
+      let bool = value as? Bool
+    {
       return bool
     }
 
@@ -57,7 +57,7 @@ public struct FeatureToggleValues: Sendable {
 
       let isEnabledItem = items.first(where: { $0.name == "enabled" }),
       let isEnabledString = isEnabledItem.value,
-	  let isEnabled = Bool(isEnabledString)
+      let isEnabled = Bool(isEnabledString)
     else {
       return nil
     }
