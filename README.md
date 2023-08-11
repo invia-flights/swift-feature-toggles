@@ -102,3 +102,6 @@ public func application(
 If your app’s custom URL is `myapp`, this link would enable the feature
 even in `RELEASE` builds with a disabled compile-time toggle.
 
+## License
+
+This library is released under the MIT license. See [LICENSE](LICENSE) for details.
