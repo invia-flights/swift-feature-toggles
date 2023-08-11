@@ -1,101 +1,101 @@
 @Tutorial(time: 20) { 
-  @Intro(title: "Creating your first feature toggle") {
-	  Feature toggles allow you to merge work-in-progress into your main 
-	  branch without disrupting its stability, facilitating continuous deployment.
+ @Intro(title: "Creating your first feature toggle") {
+	 Feature toggles allow you to merge work-in-progress into your main 
+	 branch without disrupting its stability, facilitating continuous deployment.
 	  
-	  Follow this tutorial to learn how to incorporate feature toggles
-	  into your app.
-  }
+	 Follow this tutorial to learn how to incorporate feature toggles
+	 into your app.
+ }
   
-  @Section(title: "A teleport button") {
+ @Section(title: "A teleport button") {
 	@ContentAndMedia {
 		A product owner wants you to implement a new,
 		revolutionary feature: a button that can teleport you
 		to anywhere in the world.
 		
 		In this section, you will create a view containing such a button
-		and place it inside of your app.
+		and place it inside your app.
 		
 		@Image(source: "teleport.png", alt: "A picture of an astronaut pressing a toggle")
 	}
-	@Steps {
-	  @Step {
-		  Open  `ContentView.swift`.
+ @Steps {
+	 @Step {
+		 Open `ContentView.swift`.
 		  
-		  The product owner wants the button to appear under the “Welcome
-		  to our app” title.
+		 The product owner wants the button to appear under the “Welcome
+		 to our app” title.
 		  
-		  @Code(name: "ContentView.swift", file: 01-01.swift)
-	  }
+		 @Code(name: "ContentView.swift", file: 01-01.swift)
+	 }
 		
 		@Step {
-		  Create a first version of `TeleportView`.
-		  		  
-		  @Code(name: "TeleportView.swift", file: 01-02.swift)
-	  }
+		 Create a first version of `TeleportView`.
+				 
+		 @Code(name: "TeleportView.swift", file: 01-02.swift)
+	 }
 		
 		@Step {
-		  Incorporate `TeleportView` into `ContentView`. 
+		 Incorporate `TeleportView` into `ContentView`. 
 		  
-		  @Code(name: "ContentView.swift", file: 01-03.swift)
-	  }
+		 @Code(name: "ContentView.swift", file: 01-03.swift)
+	 }
 	}
-  }
+ }
   
   
-  @Section(title: "Declaring a toggle") {
-	  @ContentAndMedia {
-		  It seems programming the button is still going to take you some time.
+ @Section(title: "Declaring a toggle") {
+	 @ContentAndMedia {
+		 It seems programming the button is still going to take you some time.
 		  
-		  Because your feature is not ready to ship yet,
-		  you want to disable it in production, but keep it enabled
-		  in `DEBUG` mode. This way, your colleagues will be able
-		  to test your work-in-progress.
+		 Because your feature is not ready to ship yet,
+		 you want to disable it in production but keep it enabled
+		 in `DEBUG` mode. This way, your colleagues will be able
+		 to test your work in progress.
 		  
-		  In this section, you’ll declare a new feature toggle that
-		  will let you do just that.
+		 In this section, you’ll declare a new feature toggle that
+		 will let you do just that.
 		  
-		  @Image(source: "declare.png", alt: "A picture of an astronaut pressing a toggle")
-	  }
+		 @Image(source: "declare.png", alt: "A picture of an astronaut pressing a toggle")
+	 }
 
-	  @Steps {		  
-		  @Step {
+	 @Steps {		  
+		 @Step {
 			Import the `FeatureToggles` package. 
 						
 			@Code(name: "TeleportView.swift", file: 02-01.swift)
 		}
 		  
-		  @Step {
+		 @Step {
 			Make `TeleportView` compliant with `FeatureKey`, `ReleaseDisabled`, and `DebugEnabled`. 
 			
 			@Code(name: "TeleportView.swift", file: 02-02.swift)
 		}
 		  
-		  @Step {
+		 @Step {
 			Extend `FeatureValues` with a computed boolean
 			property, `teleport`.
 			
 			@Code(name: "TeleportView.swift", file: 02-03.swift)
 		}
-	  }
+	 }
 	}
   
-  @Section(title: "Using the toggle") {
-	  @ContentAndMedia {
-		  In three simple steps, you have successfully created a toggle.
-		  Now you will use it in your `ContentView`.
+ @Section(title: "Using the toggle") {
+	 @ContentAndMedia {
+		 In three simple steps, you have successfully created a toggle.
+		 Now you will use it in your `ContentView`.
 		  
-		  @Image(source: "toggle.png", alt: "A picture of an astronaut pressing a toggle")
-	  }
+		 @Image(source: "toggle.png", alt: "A picture of an astronaut pressing a toggle")
+	 }
 
-	  @Steps {		  
-		  @Step {
-			Import the `FeatureToggles` package also in the `ContentView.swift` file. 
+	 @Steps {		  
+		 @Step {
+			Import the `FeatureToggles` package in the `ContentView.swift` file. 
 						
 			@Code(name: "ContentView.swift", file: 03-01.swift)
 		}
 		  
-		  @Step {
+		 @Step {
 			Declare a `@FeatureToggle` variable in `ContentView`. 
 			
 			We named the variable `isTeleportButtonEnabled`, but you
@@ -104,38 +104,37 @@
 			@Code(name: "ContentView.swift", file: 03-02.swift)
 		}
 		  
-		  @Step {
-			  Use the new variable to conditionally show your
-			  new feature.
+		 @Step {
+			 Use the new variable to show your
+			 new feature conditionally.
 			  
 			@Code(name: "ContentView.swift", file: 03-03.swift)
 		}
-	  }
+	 }
 	}
 
-  @Section(title: "Overriding the toggle with a URL") {
-	  @ContentAndMedia {
-		  Good job! Your colleagues will now see your work-in-progress, but it will be hidden
-		  from the general public.
+ @Section(title: "Overriding the toggle with a URL") {
+	 @ContentAndMedia {
+		 Good job! Your colleagues will now see your work-in-progress but not the rest of your users.
 		  
-		  However, the product owner, who is not a programmer,
-		  may also want to give you feedback from a TestFlight build.
+		 However, the product owner, who is not a programmer,
+		 would like to give you feedback from a TestFlight build, which is, of course, built for `RELEASE`.
 		  
-		  In this section, you will learn how to support enabling
-		  and disabling toggles using a specially-formatted url.
+		 In this section, you will learn how to support enabling
+		 and disabling toggles using a specially-formatted URL.
 		  
-		  @Image(source: "url.png", alt: "A picture of an astronaut pressing a toggle")
-	  }
+		 @Image(source: "url.png", alt: "A picture of an astronaut pressing a toggle")
+	 }
 
-	  @Steps {		  
-		  @Step {
+	 @Steps {		  
+		 @Step {
 			Add an `id` to the `FeatureKey` you created before. We
 			will use the `teleport` string.
 						
 			@Code(name: "TeleportView.swift", file: 04-01.swift)
 		}
 		  
-		  @Step {
+		 @Step {
 			In your `AppDelegate`, call `FeatureValues.handle(url:)` from
 			`application(_:open:options:)`.
 			
@@ -144,16 +143,16 @@
 			@Code(name: "AppDelegate.swift", file: 04-02.swift)
 		}
 		  
-		  @Step {
-			  Assuming your app’s custom URL scheme is `myapp`, share
-			  the link below your product owner.
-
-			  `myapp://toggle?id=teleport&value=true`
+		 @Step {
+			 Assuming your app’s custom URL scheme is `myapp`, share
+			 this link with the product owner: `myapp://toggle?id=teleport&value=true`
 			  
-			@Code(name: "Message.md", file: 04-03.md)
+			 By opening the link on a device that has your app installed,
+			 they will be able to try out your work-in-progress.
+			  
+			 @Image(source: "message.png", alt: "A picture of an astronaut pressing a toggle")
 		}
-	  }
+	 }
 	}
-
-  }
+ }
 }
