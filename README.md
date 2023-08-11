@@ -103,7 +103,11 @@ public func application(
 ```
 
 If your app’s custom URL is `myapp`, this link would enable the feature
-even in `RELEASE` builds with a disabled compile-time toggle.
+even in `RELEASE` builds with a disabled compile-time toggle:
+
+```
+myapp://toggle?id=teleport&value=true
+```
 
 ## License
 
