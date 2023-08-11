@@ -15,7 +15,7 @@ public struct FeatureToggleValues: Sendable {
     shared.override(withValuesFrom: url)
   }
 
-  public subscript(key: (some FeatureToggleKey).Type) -> Bool {
+  internal subscript(key: (some FeatureToggleKey).Type) -> Bool {
     if let value = userDefaults.object(forKey: key.id), let bool = value as? Bool {
       return bool
     }

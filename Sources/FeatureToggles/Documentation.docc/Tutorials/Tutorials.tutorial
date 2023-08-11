@@ -8,6 +8,6 @@
         Learn how to create and use a toggle.
                 
         @TutorialReference(tutorial: "doc:CreatingYourFirstFeatureToggle")
-		@Image(source: "switch.png", alt: "An illustration of an astronaut activating a switch.")
+		@Image(source: "toggle.png", alt: "An illustration of an astronaut activating a switch.")
     }
 }
