@@ -27,16 +27,6 @@ public struct FeatureToggleValues: Sendable {
     #endif
   }
 
-  private func bool(for string: String) -> Bool? {
-    if string == "true" {
-      return true
-    }
-    if string == "false" {
-      return false
-    }
-    return nil
-  }
-
   private func parse(url: URL) -> (String, Bool)? {
     guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: false),
       comps.host == "toggle",
@@ -47,7 +37,7 @@ public struct FeatureToggleValues: Sendable {
 
       let isEnabledItem = items.first(where: { $0.name == "enabled" }),
       let isEnabledString = isEnabledItem.value,
-      let isEnabled = bool(for: isEnabledString)
+	  let isEnabled = Bool(isEnabledString)
     else {
       return nil
     }
