@@ -9,7 +9,7 @@ A novel approach to feature toggles for Swift programmers.
 
 [Feature toggles](https://martinfowler.com/bliki/FeatureFlag.html), also known
 as “feature flags,” are a tool to keep a team of developers contributing to
-the mainline without revealing half-implemented features on your releases. 
+the mainline without revealing half-implemented features on their releases. 
 
 The `FeatureToggles` package provides a mechanism for declaring toggles
 in a decentralized manner. Those toggles can stay turned off in `RELEASE` builds, 
