@@ -55,7 +55,7 @@
 		 In this section, you’ll declare a new feature toggle that
 		 will let you do just that.
 		  
-		 @Image(source: "declare.png", alt: "A picture of an astronaut pressing a toggle")
+		 @Image(source: "declare.png", alt: "A picture of an astronaut writing a declaration")
 	 }
 
 	 @Steps {		  
@@ -123,7 +123,7 @@
 		 In this section, you will learn how to support enabling
 		 and disabling toggles using a specially-formatted URL.
 		  
-		 @Image(source: "url.png", alt: "A picture of an astronaut pressing a toggle")
+		 @Image(source: "url.png", alt: "A picture of an astronaut entering a URL")
 	 }
 
 	 @Steps {		  
@@ -150,7 +150,7 @@
 			 By opening the link on a device that has your app installed,
 			 they will be able to try out your work-in-progress.
 			  
-			 @Image(source: "message.png", alt: "A picture of an astronaut pressing a toggle")
+			 @Image(source: "message.png", alt: "A message sent in Slack")
 		}
 	 }
 	}
