@@ -2,11 +2,9 @@ import Foundation
 
 public struct FeatureValues: Sendable {
   public init(
-    userDefaults: UserDefaults = .standard,
-    notificationCenter: NotificationCenter = .default
+    userDefaults: UserDefaults = .standard
   ) {
     self.userDefaults = userDefaults
-    self.notificationCenter = notificationCenter
   }
 
   private func bool(for string: String) -> Bool? {
@@ -51,10 +49,9 @@ public struct FeatureValues: Sendable {
   public static var shared = FeatureValues()
 
   internal let userDefaults: UserDefaults
-  internal let notificationCenter: NotificationCenter
 
   public subscript(key: (some FeatureKey).Type) -> Bool {
-    if let id = key.id, let value = userDefaults.object(forKey: id), let bool = value as? Bool {
+	  if let value = userDefaults.object(forKey: key.id), let bool = value as? Bool {
       return bool
     }
 

@@ -3,7 +3,7 @@ import XCTest
 @testable import FeatureToggles
 
 enum MyFeature: FeatureKey {
-  static var id: String = "MY_FEATURE"
+	static var id: String = "MY_FEATURE"
   static var defaultValue: Bool = true
 }
 
@@ -20,7 +20,7 @@ final class FeaturingTests: XCTestCase {
   override func setUp() async throws {
     userDefaults = .init()
     notificationCenter = .init()
-    sut = .init(userDefaults: userDefaults, notificationCenter: notificationCenter)
+    sut = .init(userDefaults: userDefaults)
   }
 
   override func tearDown() async throws {
