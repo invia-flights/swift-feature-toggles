@@ -38,7 +38,7 @@ Or create a brand new entity:
 enum TeleportFeatureToggle: FeatureToggleKey, ReleaseDisabled, DebugEnabled {}
 ```
 
-> Note:
+> [!NOTE]
 > The `ReleaseEnabled`, `ReleaseDisabled`, `DebugEnabled`, and `DebugDisabled`
 > indicate the default toggle behavior. Four combinations are possible:
 > 1. `ReleaseDisabled`, `DebugDisabled`
@@ -101,11 +101,4 @@ public func application(
 
 If your app’s custom URL is `myapp`, this link would enable the feature
 even in `RELEASE` builds with a disabled compile-time toggle.
-
-
-## Topics
-
-### Essentials
-
-- <doc:CreatingYourFirstFeatureToggle>
 

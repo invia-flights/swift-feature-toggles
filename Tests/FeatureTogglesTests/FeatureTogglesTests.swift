@@ -3,7 +3,7 @@ import XCTest
 @testable import FeatureToggles
 
 enum MyFeature: FeatureToggleKey, ReleaseEnabled, DebugEnabled {
-  static var id: String = "MY_FEATURE"
+  static var featureToggleIdentifier: String = "MY_FEATURE"
 }
 
 extension FeatureToggleValues {

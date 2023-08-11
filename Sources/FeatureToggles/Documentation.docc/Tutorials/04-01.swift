@@ -10,7 +10,7 @@ struct TeleportView: View {
 }
 
 extension TeleportView: FeatureToggleKey, ReleaseDisabled, DebugEnabled {
-  static let id = "teleport"
+  static let featureToggleIdentifier = "teleport"
 }
 
 extension FeatureToggleValues {
