@@ -3,5 +3,5 @@ public func application(
   open url: URL,
   options _: [UIApplication.OpenURLOptionsKey: Any] = [:]
 ) -> Bool {
-  FeatureValues.handle(url: url)
+  FeatureToggleValues.override(withValuesFrom: url)
 }

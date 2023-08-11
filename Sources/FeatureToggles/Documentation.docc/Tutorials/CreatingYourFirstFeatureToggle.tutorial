@@ -66,12 +66,8 @@
 		}
 		  
 		  @Step {
-			Make `TeleportView` compliant with `FeatureKey`. 
+			Make `TeleportView` compliant with `FeatureKey`, `ReleaseDisabled`, and `DebugEnabled`. 
 			
-			By setting `defaultValue` to true, we declare
-			that we want it off in production builds.
-			But, by setting `debugValue` to true, we declare
-			that we want it on in `DEBUG` builds. 			
 			@Code(name: "TeleportView.swift", file: 02-02.swift)
 		}
 		  

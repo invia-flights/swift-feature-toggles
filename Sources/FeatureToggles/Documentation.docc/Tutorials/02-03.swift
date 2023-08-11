@@ -9,11 +9,8 @@ struct TeleportView: View {
   }
 }
 
-extension TeleportView: FeatureKey {
-  static let defaultValue = false
-  static let debugValue = true
-}
+extension TeleportView: FeatureToggleKey, ReleaseDisabled, DebugEnabled {}
 
-extension FeatureValues {
+extension FeatureToggleValues {
   var teleport: Bool { self[TeleportView.self] }
 }

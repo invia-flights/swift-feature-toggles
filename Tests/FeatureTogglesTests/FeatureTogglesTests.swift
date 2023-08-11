@@ -2,12 +2,11 @@ import XCTest
 
 @testable import FeatureToggles
 
-enum MyFeature: FeatureKey {
-	static var id: String = "MY_FEATURE"
-  static var defaultValue: Bool = true
+enum MyFeature: FeatureToggleKey, ReleaseEnabled, DebugEnabled {
+  static var id: String = "MY_FEATURE"
 }
 
-extension FeatureValues {
+extension FeatureToggleValues {
   var myFeature: Bool { self[MyFeature.self] }
 }
 
@@ -15,7 +14,7 @@ extension FeatureValues {
 final class FeaturingTests: XCTestCase {
   var notificationCenter: NotificationCenter!
   var userDefaults: UserDefaults!
-  var sut: FeatureValues!
+  var sut: FeatureToggleValues!
 
   override func setUp() async throws {
     userDefaults = .init()
@@ -38,7 +37,8 @@ final class FeaturingTests: XCTestCase {
   }
 
   func testItCanOverrideViaURLs() async throws {
-    let handled = sut.handle(url: URL(string: #"myapp://toggle?id=MY_FEATURE&value=false"#)!)
+    let handled = sut.override(
+      withValuesFrom: URL(string: #"myapp://toggle?feature=MY_FEATURE&enabled=false"#)!)
     @FeatureToggle(\.myFeature, featureValues: sut) var myFeature
     XCTAssert(handled)
     XCTAssertEqual(myFeature, false)
